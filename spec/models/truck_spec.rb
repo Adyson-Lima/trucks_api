@@ -28,7 +28,7 @@ RSpec.describe Truck, type: :model do
 
     it 'Truck invalido com campos obrigatorios não preenchidos?' do
       truck = Truck.new
-      expect(truck).to be_valid
+      expect(truck).to be_invalid
     end
 
   end
