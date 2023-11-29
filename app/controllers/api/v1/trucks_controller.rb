@@ -11,6 +11,15 @@ class Api::V1::TrucksController < ApplicationController
     render json: @truck
   end
 
+  def create
+    @truck = Truck.new(truck_params)
+    if @truck.save
+      render json: @truck, status: :created, location: api_v1_truck_url(@truck)
+    else
+      render json: @truck.errors, status: :unprocessable_entity
+    end
+  end
+
 private
 
 def set_truck
