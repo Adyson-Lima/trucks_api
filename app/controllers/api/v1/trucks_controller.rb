@@ -1,10 +1,14 @@
 class Api::V1::TrucksController < ApplicationController
 
-  #before_action :set_truck, only: %i[] # show update destroy
+  before_action :set_truck, only: %i[show] # show update destroy
 
   def index
     @trucks = Truck.all 
     render json: @trucks
+  end
+
+  def show
+    render json: @truck
   end
 
 private
