@@ -20,5 +20,13 @@ RSpec.describe Api::V1::TrucksController, type: :controller do
     end
   end
 
+  describe 'POST /api/v1/trucks' do
+    it 'Consegue criar um truck e retornar status 201?' do
+      post :create, params: {truck: {truck_model: 'd9500', manufacturer: 'FNM'}, format: :json}
+      expect(response.body).to include_json(truck_model: 'd9500')
+      expect(response).to have_http_status(201)
+    end
+  end
+
 
 end
