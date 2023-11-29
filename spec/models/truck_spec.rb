@@ -26,6 +26,11 @@ RSpec.describe Truck, type: :model do
       expect(@truck).to be_valid
     end
 
+    it 'Truck invalido com campos obrigatorios não preenchidos?' do
+      truck = Truck.new
+      expect(truck).to be_valid
+    end
+
   end
 
 end
