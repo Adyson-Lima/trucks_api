@@ -1,6 +1,6 @@
 class Api::V1::TrucksController < ApplicationController
 
-  before_action :set_truck, only: %i[show update] # show update destroy
+  before_action :set_truck, only: %i[show update destroy] # show update destroy
 
   def index
     @trucks = Truck.all 
@@ -26,6 +26,10 @@ class Api::V1::TrucksController < ApplicationController
     else
       render json: @truck.errors, status: :unprocessable_entity
     end 
+  end
+
+  def destroy
+    @truck.destroy!
   end
 
 private
