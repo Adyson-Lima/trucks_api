@@ -11,6 +11,11 @@ RSpec.describe Truck, type: :model do
       expect(@truck.truck_model).to eq('1313')
     end
 
+    it 'manufacturer consegue ser preenchido?' do
+      @truck.manufacturer = ''
+      expect(@truck.manufacturer).to eq('mercedez')
+    end
+
   end
 
 end
