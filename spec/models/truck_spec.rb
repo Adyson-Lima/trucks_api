@@ -21,8 +21,8 @@ RSpec.describe Truck, type: :model do
   describe 'Testes de validação do model Truck' do
 
     it 'Truck valido com campos obrigatorios preenchidos?' do
-      @truck.truck_model = ''
-      @truck.manufacturer = ''
+      @truck.truck_model = '1113'
+      @truck.manufacturer = 'mercedez'
       expect(@truck).to be_valid
     end
 
