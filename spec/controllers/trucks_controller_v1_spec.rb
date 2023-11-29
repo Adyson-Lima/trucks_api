@@ -28,5 +28,14 @@ RSpec.describe Api::V1::TrucksController, type: :controller do
     end
   end
 
+  describe 'PATCH /api/v1/trucks/id' do
+    it 'Consegue atualizar um truck e retornar status 200?' do
+      truck = Truck.last
+      patch :update, params: {truck: {truck_model: '112', manufacturer: 'scania'}, id: truck.id}
+      expect(response.body).to include_json(truck_model: '112')
+      expect(response).to have_http_status(200)
+    end   
+  end
+
 
 end
